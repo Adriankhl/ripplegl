@@ -18,6 +18,8 @@ Run the following to build the application:
 mvn clean package
 ```
 
+You can then open the html page at `./ripple-server/target/ripple-server-1.0-SNAPSHOT/Ripple.html`.
+
 ## License
 
 This program is free software; you can redistribute it and/or
