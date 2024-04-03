@@ -1267,6 +1267,15 @@ public class RippleSim implements MouseDownHandler, MouseMoveHandler,
 		setupChooser.add("Example: " + setupList.lastElement().getName());
 
 		setupList.add(
+				new HardCodedSetup("Two Source",
+						"$ 1 512 64 10 0 640 0.048828125\n" +
+								"s 0 256 226 0 0.466666 0 10 100\n" +
+								"s 0 256 298 0 0.466666 0 10 100"
+				)
+		);
+		setupChooser.add("Example: " + setupList.lastElement().getName());
+
+		setupList.add(
 				new HardCodedSetup("Plane Wave",
 						"$ 1 512 64 10 0 569 0.048828125\n" +
 								"S 0 0 1 511 1 0 0.466666 0 10 100"
