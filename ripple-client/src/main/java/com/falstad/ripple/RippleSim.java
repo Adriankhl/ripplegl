@@ -1256,6 +1256,8 @@ public class RippleSim implements MouseDownHandler, MouseMoveHandler,
     void getSetupList() {
 		GWT.log("Processing hard coded setup list");
 
+		// Use hard coded setup to prevent CORS error when loading local file
+		// https://stackoverflow.com/questions/10752055/cross-origin-requests-are-only-supported-for-http-error-when-loading-a-local
 		setupList.add(
 				new HardCodedSetup("Single Source",
 						"$ 1 512 64 10 0 668 0.048828125\n" +
@@ -1277,6 +1279,15 @@ public class RippleSim implements MouseDownHandler, MouseMoveHandler,
 						"$ 1 512 112 10 1 565 1.5625e-8\n" +
 								"m 0 -112 256 623 623 0 0.25\n" +
 								"S 1 1 127 171 -1 2 0.699999 0 75 150"
+				)
+		);
+		setupChooser.add("Example: " + setupList.lastElement().getName());
+
+		setupList.add(
+				new HardCodedSetup("Single Slit",
+						"$ 1 512 64 10 1 578 1.5625e-8\n" +
+								"S 0 0 1 511 1 0 2.2166635 0 10 100\n" +
+								"203 0 -63 13 571 13 1 20 10"
 				)
 		);
 		setupChooser.add("Example: " + setupList.lastElement().getName());
