@@ -1284,6 +1284,15 @@ public class RippleSim implements MouseDownHandler, MouseMoveHandler,
 		setupChooser.add("Example: " + setupList.lastElement().getName());
 
 		setupList.add(
+				new HardCodedSetup("Internal Refraction",
+						"$ 1 512 112 10 1 688 1.5625e-8\n" +
+								"m 0 -112 256 623 623 0 0.25\n" +
+								"S 1 0 341 170 511 2 0.8166655 0 75 200"
+				)
+		);
+		setupChooser.add("Example: " + setupList.lastElement().getName());
+
+		setupList.add(
 				new HardCodedSetup("Single Slit",
 						"$ 1 512 64 10 1 578 1.5625e-8\n" +
 								"S 0 0 1 511 1 0 2.2166635 0 10 100\n" +
@@ -1291,6 +1300,7 @@ public class RippleSim implements MouseDownHandler, MouseMoveHandler,
 				)
 		);
 		setupChooser.add("Example: " + setupList.lastElement().getName());
+
 	}
 		
     void processSetupList(byte b[], int len) {
