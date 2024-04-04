@@ -1285,6 +1285,15 @@ public class RippleSim implements MouseDownHandler, MouseMoveHandler,
 		setupChooser.add(setupList.lastElement().getName());
 
 		setupList.add(
+				new HardCodedSetup("Reflection",
+						"$ 3 512 112 0 1 565 1.5625e-8\n" +
+								"S 2 1 127 171 -1 2 0.6999988053353721 0 75.00047541813854 150.00095083627707 1 0\n" +
+								"w 0 -145 311 529 312"
+				)
+		);
+		setupChooser.add(setupList.lastElement().getName());
+
+		setupList.add(
 				new HardCodedSetup("Refraction",
 						"$ 1 512 112 10 1 565 1.5625e-8\n" +
 								"m 0 -112 256 623 623 0 0.25\n" +
