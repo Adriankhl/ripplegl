@@ -19,6 +19,7 @@
 
 package com.falstad.ripple;
 
+import java.util.Objects;
 import java.util.Vector;
 import java.util.logging.Logger;
 
@@ -1259,29 +1260,29 @@ public class RippleSim implements MouseDownHandler, MouseMoveHandler,
 		// Use hard coded setup to prevent CORS error when loading local file
 		// https://stackoverflow.com/questions/10752055/cross-origin-requests-are-only-supported-for-http-error-when-loading-a-local
 		setupList.add(
-				new HardCodedSetup("Single Source",
+				new HardCodedSetup("Single-Source",
 						"$ 1 512 64 10 0 668 0.048828125\n" +
 						"s 0 256 1 0 0.466666 0 10 100"
 				)
 		);
-		setupChooser.add("Example: " + setupList.lastElement().getName());
+		setupChooser.add(setupList.lastElement().getName());
 
 		setupList.add(
-				new HardCodedSetup("Two Source",
+				new HardCodedSetup("Two-Source",
 						"$ 1 512 64 10 0 640 0.048828125\n" +
 								"s 0 256 226 0 0.466666 0 10 100\n" +
 								"s 0 256 298 0 0.466666 0 10 100"
 				)
 		);
-		setupChooser.add("Example: " + setupList.lastElement().getName());
+		setupChooser.add(setupList.lastElement().getName());
 
 		setupList.add(
-				new HardCodedSetup("Plane Wave",
+				new HardCodedSetup("Plane-Wave",
 						"$ 1 512 64 10 0 569 0.048828125\n" +
 								"S 0 0 1 511 1 0 0.466666 0 10 100"
 				)
 		);
-		setupChooser.add("Example: " + setupList.lastElement().getName());
+		setupChooser.add(setupList.lastElement().getName());
 
 		setupList.add(
 				new HardCodedSetup("Refraction",
@@ -1290,26 +1291,35 @@ public class RippleSim implements MouseDownHandler, MouseMoveHandler,
 								"S 1 1 127 171 -1 2 0.699999 0 75 150"
 				)
 		);
-		setupChooser.add("Example: " + setupList.lastElement().getName());
+		setupChooser.add(setupList.lastElement().getName());
 
 		setupList.add(
-				new HardCodedSetup("Internal Refraction",
+				new HardCodedSetup("Internal-Refraction",
 						"$ 1 512 112 10 1 688 1.5625e-8\n" +
 								"m 0 -112 256 623 623 0 0.25\n" +
 								"S 1 0 341 170 511 2 0.8166655 0 75 200"
 				)
 		);
-		setupChooser.add("Example: " + setupList.lastElement().getName());
+		setupChooser.add(setupList.lastElement().getName());
 
 		setupList.add(
-				new HardCodedSetup("Single Slit",
+				new HardCodedSetup("Single-Slit",
 						"$ 1 512 64 10 1 578 1.5625e-8\n" +
 								"S 0 0 1 511 1 0 2.2166635 0 10 100\n" +
 								"203 0 -63 13 571 13 1 20 10"
 				)
 		);
-		setupChooser.add("Example: " + setupList.lastElement().getName());
+		setupChooser.add(setupList.lastElement().getName());
 
+		if (startExample != null) {
+			int selectedIndex = setupList.indexOf(
+					setupList.stream().filter(s ->
+							s.getName().equals(startExample)
+					).findFirst().orElse(setupList.firstElement())
+			);
+
+			setupChooser.select(selectedIndex);
+		}
 	}
 		
     void processSetupList(byte b[], int len) {

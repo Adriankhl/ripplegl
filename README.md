@@ -20,6 +20,17 @@ mvn clean package
 
 You can then open the html page at `./ripple-server/target/ripple-server-1.0-SNAPSHOT/Ripple.html`.
 
+## Choose other startup example
+
+If you want to display other example instead of the default `Single-Source`, you can add a query parameter
+to the url:
+
+```
+./ripple-server/target/ripple-server-1.0-SNAPSHOT/Ripple.html?startExample=<name>
+```
+
+For example, you can replace `<name>` by `Two-Source` to display the `Two-Source` example.
+
 ## License
 
 This program is free software; you can redistribute it and/or
